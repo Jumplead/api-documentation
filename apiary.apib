@@ -267,9 +267,9 @@ Campaigns are a group of emails that can be sent to the contact in schedule.
 | address_admin_area | Administration area / City  of the sending company | string, required |
 | address_postal_code | Postal / Zip code of the sending company | string, required |
 | address_country | ISO 2 Digit Country code of the sending company | string, required |
+| type | The type of the campaign | integer, required <br>0 - Broadcast<br>1 - Autoresponder |
 | convert_action | If a contact receiving this campaign converts on another form | integer, optional <br>0 - Stop schedule<br>1 - Carry on |
 | receive_action | Contacts can receive this campaign | integer, optional <br>0 - Only once<br>1 - More than once |
-| type | The type of the campaign | integer, required <br>0 - Broadcast<br>1 - Nurture |
 | stats | System generated statistics | object, read-only |
 | schedule_triggers | Triggers for this schedule. Only editable through Jumplead App | object, read-only |
 | schedule_actions | Actions for this schedule. Only editable through Jumplead App | object, read-only |
