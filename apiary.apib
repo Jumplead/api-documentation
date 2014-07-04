@@ -350,4 +350,57 @@ Campaigns are a group of emails that can be sent to the contact in schedule.
               }
             }
 
+### Create a Campaign [POST]
+Note: To configure campaign options you'll need to use the Jumplead App.
 
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+            
+    + Body
+
+            {
+              "data": {
+                  "name": "1. Trial Signup",
+                  "company_name": "Jumplead",
+                  "address_street": "23 Hallfields Lane",
+                  "address_locality": "Rothley",
+                  "address_admin_area": "Leicestershire",
+                  "address_postal_code": "LE7 7NF",
+                  "address_country": "GB",
+                  "type": 1
+              }
+            }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "id": "507d429941d9067705000001",
+            "name": "1. Trial Signup",
+            "company_name": "Jumplead",
+            "address_street": "23 Hallfields Lane",
+            "address_locality": "Rothley",
+            "address_admin_area": "Leicestershire",
+            "address_postal_code": "LE7 7NF",
+            "address_country": "GB",
+            "convert_action": 1,
+            "receive_action": 0,
+            "type": 1,
+            "stats": {
+              "open_rate": 0,
+              "click_rate": 0,
+              "delivery_rate": 0,
+              "delivered": 0,
+              "deferred": 0,
+              "bounce": 0,
+              "open": 0,
+              "click": 0,
+              "spamreport": 0
+            },
+            "schedule_triggers": [],
+            "schedule_actions": []
+          }
+        }
