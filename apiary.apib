@@ -52,63 +52,71 @@ Automations are a series of actions that can be applied to a contact.
 ## Automation Collection [/automations{?trigger_type}]
 
 ### List all Automations [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
 + Response 200 (application/json)
 
-        {
-          "data": [
+    + Body
+    
             {
-              "id": "5086bffb7558f4b37a000000",
-              "name": "No Sub - 21 Days",
-              "description": "Triggered when client hasnt subscribed after 21 days of taking a trial",
-              "trigger_type": "api",
-              "trigger_id": null,
-              "actions": [
-                
-              ],
-              "stats": {
-                "conversion": 2,
-                "conversion_rate": 0.058258083309059
-              }
-            },
-            {
-              "id": "5097ee7241d906ef07000000",
-              "name": "Contact Form",
-              "description": "Jumplead website contact form",
-              "trigger_type": "form",
-              "trigger_id": "502901e341d906880800000b",
-              "actions": [
+              "data": [
                 {
-                  "type": "notification",
-                  "users": [
-                    1,
-                    2,
-                    1074
-                  ]
+                  "id": "5086bffb7558f4b37a000000",
+                  "name": "No Sub - 21 Days",
+                  "description": "Triggered when client hasnt subscribed after 21 days of taking a trial",
+                  "trigger_type": "api",
+                  "trigger_id": null,
+                  "actions": [
+                    
+                  ],
+                  "stats": {
+                    "conversion": 2,
+                    "conversion_rate": 0.058258083309059
+                  }
                 },
                 {
-                  "type": "stage",
-                  "id": 55
+                  "id": "5097ee7241d906ef07000000",
+                  "name": "Contact Form",
+                  "description": "Jumplead website contact form",
+                  "trigger_type": "form",
+                  "trigger_id": "502901e341d906880800000b",
+                  "actions": [
+                    {
+                      "type": "notification",
+                      "users": [
+                        1,
+                        2,
+                        1074
+                      ]
+                    },
+                    {
+                      "type": "stage",
+                      "id": 55
+                    }
+                  ],
+                  "stats": {
+                    "conversion": 11,
+                    "conversion_rate": 0.32041945819983
+                  }
                 }
               ],
-              "stats": {
-                "conversion": 11,
-                "conversion_rate": 0.32041945819983
+              "meta": {
+                "pagination": {
+                  "total": 16,
+                  "count": 10,
+                  "per_page": 2,
+                  "current_page": 1,
+                  "total_pages": 2,
+                  "links": {
+                    "next": "https:\/\/app.jumplead.com\/api\/v1\/automations?page=2"
+                  }
+                }
               }
             }
-          ],
-          "meta": {
-            "pagination": {
-              "total": 16,
-              "count": 10,
-              "per_page": 2,
-              "current_page": 1,
-              "total_pages": 2,
-              "links": {
-                "next": "https:\/\/app.jumplead.com\/api\/v1\/automations?page=2"
-              }
-            }
-          }
-        }
 
 + Parameters
     + trigger_type (optional, string) ... Filter automations by their trigger type.
@@ -116,12 +124,18 @@ Automations are a series of actions that can be applied to a contact.
 ### Create an Automation [POST]
 + Request (application/json)
 
-        {
-          "data": {
-            "name": "Contact Form",
-            "description": "Trigger when a contact submits the contact form",
-          }
-        }
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+            
+    + Body
+
+            {
+              "data": {
+                "name": "Contact Form",
+                "description": "Trigger when a contact submits the contact form",
+              }
+            }
 
 + Response 200 (application/json)
 
@@ -143,7 +157,6 @@ Automations are a series of actions that can be applied to a contact.
             }
 
 ## Automation [/automations/{id}]
-A single Automation object with all its details
 
 + Parameters
     + id (required, string, `5086bfdb75d8f4b37a000000`) ... The ID of the automation.
@@ -170,6 +183,12 @@ A single Automation object with all its details
             }
 
 ### Retrieve an Automation [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
 + Response 200 (application/json)
 
     [Automation][]
@@ -177,14 +196,57 @@ A single Automation object with all its details
 ### Update an Automation [PUT]
 + Request (application/json)
 
-        {
-          "data": {
-            "name": "Updated Contact Form Name"
-          }
-        }
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+            
+    + Body
+
+            {
+              "data": {
+                "name": "Updated Contact Form Name"
+              }
+            }
 
 + Response 200 (application/json)
     [Automation][]
 
 ### Delete an Automation [DELETE]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
 + Response 204
+
+
+## Automation Trigger [/automations/trigger]
+
+### Trigger an Automation [POST]
+To trigger an Automation you MUST pass an **automation_id** and either a **contact_id** or a **first_name**, **last_name** and an **email**.
+
+If the contact doesn't exist Jumplead will create one automatically and trigger the automation against the contact.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
+    + Body
+
+            {
+              {
+                "automation_id": "5086bfdb75d8f4b37a000000",
+                "first_name": "John",
+                "last_name": "Smith",
+                "email": "john.smith@gmail.com"
+              }
+            }
+
++ Response 202
+
+    + Body
+    
+            Automation triggered.
