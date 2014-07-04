@@ -5,9 +5,36 @@ HOST: https://app.jumplead.com/api/v1
 Welcome to the Jumpelad developer documentation!
 
 ## Authentication
+
+![OAuth 2.0](http://oauth.net/images/oauth-2-sm.png)
+
 The Jumplead API uses [OAuth 2.0](http://oauth.net/2/) for authentication. You will first need to register your application on the [Jumplead Developers](http://developers.jumplead.com) site.
 
-Once registered use the following endpoints to get your Access and Refresh tokens.
+Once registered use the following endpoints to get your Access and Refresh tokens:
+
+* `Authorization URL` https://account.mooloop.com/oauth/authorize
+* `Access Token URL` https://account.mooloop.com/oauth/access_token
+* `Refresh Token URL` https://account.mooloop.com/oauth/access_token
+
+### Scopes
+
+The following scopes are available. Only request the scopes that you need access to.
+
+| Scope                         | Description                                                   |
+| ----------------------------- | ------------------------------------------------------------- |
+| jumplead.personal             | Access to personal information, such as email and address.    |
+| jumplead.automation           | Access to manage Automations                                  |
+| jumplead.streams              | Access to manage Activity Streams                             |
+| jumplead.landing-pages        | Access to manage Landing Pages                                |
+| jumplead.lead-capture-forms   | Access to manage Lead capture forms                           |
+| jumplead.campaigns            | Access to manage Campaigns                                    |
+| jumplead.contacts             | Access to manage Contacts                                     |
+| jumplead.messages             | Access to manage Messages                                     |
+| jumplead.analytics            | Access to Analytics Statistics                                |
+| jumplead.reseller             | Access to Reseller Controls                                   |
+| jumplead.billing              | Access to Billing Information and Invoices                    |
+| jumplead.keywords             | Access to SERP Keywords                                       |
+
 
 # Group Automations
 Automations are a series of actions that can be applied to a contact.
