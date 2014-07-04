@@ -39,6 +39,16 @@ The following scopes are available. Only request the scopes that you need access
 # Group Automations
 Automations are a series of actions that can be applied to a contact.
 
+## Automation Fields
+| Name              | Description                               | Details           |
+| ----------------- | ----------------------------------------- | ----------------- |
+| name              | The name of the Automation                | string, required  |
+| description       | A friendly description of the Automation  | string, required  |
+| trigger_type      | The type of the automation trigger        | string, optional  |
+| trigger_id        | The ID of the trigger, see trigger_type   | mixed, optional   |
+| actions           | An array of actions for the automation    | array, optional   |
+| stats             | System generated statistics               | object, read-only |
+
 ## Automation Collection [/automations{?trigger_type}]
 
 ### List all Automations [GET]
@@ -161,11 +171,8 @@ A single Automation object with all its details
 
 ### Retrieve an Automation [GET]
 + Response 200 (application/json)
+
     [Automation][]
-
-+ Response 400 (text/plain)
-
-        ID is not valid.
 
 ### Update an Automation [PUT]
 + Request (application/json)
@@ -179,5 +186,5 @@ A single Automation object with all its details
 + Response 200 (application/json)
     [Automation][]
 
-### Remove an Automation [DELETE]
+### Delete an Automation [DELETE]
 + Response 204
