@@ -387,3 +387,93 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 + Response 200 (application/json)
 
     [Contact][]
+    
+    
+# Group Stages
+Stages are used to group contacts.
+
+## Stage Fields
+| Name              | Description                                                                   | Details               |
+| ----------------- | ----------------------------------------------------------------------------- | --------------------- |
+| name              | The name of the stage                                                         | string, required      |
+| parent_id         | System field used by Jumplead App                                             | string, optional      |
+| order             | System field used by Jumplead App                                             | integer, optional     |
+| hidden            | System field used by Jumplead App                                             | boolean, optional     |
+| total_contacts    | System generated statistic with the total number of contacts in the stage     | integer, read-only    |
+
+## Stages Collection [/stages]
+
+### List all Stages [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "data": [
+                {
+                  "id": 1,
+                  "name": "Stage 1",
+                  "parent_id": null,
+                  "order": 1,
+                  "hidden": false,
+                  "total_contacts": 23
+                },
+                {
+                  "id": 2,
+                  "name": "Stage 2",
+                  "parent_id": null,
+                  "order": 2,
+                  "hidden": false,
+                  "total_contacts": 56
+                }
+              ],
+              "meta": {
+                "pagination": {
+                  "total": 2,
+                  "count": 2,
+                  "per_page": 9999,
+                  "current_page": 1,
+                  "total_pages": 1,
+                  "links": [
+                    
+                  ]
+                }
+              }
+            }
+            
+## Stage [/stages/{id}]
+
++ Parameters
+    + id (required, integer, `2`) ... The ID of the stage.
+    
++ Model (application/json)
+
+    + Body
+    
+            {
+              "data": {
+                  "id": 2,
+                  "name": "Stage 2",
+                  "parent_id": null,
+                  "order": 2,
+                  "hidden": false,
+                  "total_contacts": 56
+              }
+            }
+            
+### Retrieve a Stage [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
++ Response 200 (application/json)
+
+    [Stage][]
