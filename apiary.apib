@@ -367,3 +367,23 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 + Response 200 (application/json)
 
     [Contact][]
+    
+### Update a Contact [PUT]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+            
+            
+    + Body
+    
+            {
+              "data": {
+                  "email": "joe.bloggs@yahoo.com"
+              }
+            }
+
++ Response 200 (application/json)
+
+    [Contact][]
