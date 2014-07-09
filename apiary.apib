@@ -281,3 +281,89 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
               }
             }
             
+### Create a Contact [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+            
+    + Body
+    
+            {
+              "data": {
+                  "first_name": "Joe",
+                  "last_name": "Bloggs",
+                  "email": "joe.bloggs@yahoo.com"
+              }
+            }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "data": {
+                  "id": "53babf8c7333f4e3358b222a",
+                  "first_name": "Joe",
+                  "last_name": "Bloggs",
+                  "company": "53babf8c7558f4e3358b4569",
+                  "background": "Some useful background information",
+                  "status": 1,
+                  "stage": 55,
+                  "email": "joe.bloggs@yahoo.com",
+                  "contactable": false,
+                  "tags": [
+                    "random",
+                    "tags"
+                  ],
+                  "lead_score": 10,
+                  "geoname": 3333165,
+                  "custom_field_data": [
+                    
+                  ]
+              }
+            }
+            
+## Contact [/contacts/{id}]
+
++ Parameters
+    + id (required, string, `5086bfdb75d8f4b37a000000`) ... The ID of the contact.
+    
++ Model (application/json)
+
+    + Body
+    
+            {
+              "data": {
+                  "id": "53babf8c7333f4e3358b222a",
+                  "first_name": "Joe",
+                  "last_name": "Bloggs",
+                  "company": "53babf8c7558f4e3358b4569",
+                  "background": "Some useful background information",
+                  "status": 1,
+                  "stage": 55,
+                  "email": "joe.bloggs@yahoo.com",
+                  "contactable": false,
+                  "tags": [
+                    "random",
+                    "tags"
+                  ],
+                  "lead_score": 10,
+                  "geoname": 3333165,
+                  "custom_field_data": [
+                    
+                  ]
+              }
+            }
+            
+### Retrieve a Contact [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
++ Response 200 (application/json)
+
+    [Contact][]
