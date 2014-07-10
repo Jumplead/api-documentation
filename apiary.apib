@@ -35,6 +35,13 @@ The following scopes are available. Only request the scopes that you need access
 | jumplead.billing              | Access to Billing Information and Invoices                    |
 | jumplead.keywords             | Access to SERP Keywords                                       |
 
+## Responses
+All responses from the Jumplead API are wrapped inside a "data" namespace at the top level of the JSON response. The top level also includes a "meta" namespace which includes extra information to aid the developer.
+
+### Paging
+All Collections from the Jumplead API are paged in batches of 20 results. This limit is currently hard-coded and can't be changed. Some endpoints don't having paging restrictions.
+
+Information about paging is contained inside the "meta"."pagination" namespace. It's contents are self explanatory.
 
 # Group Automations
 Automations are a series of actions that can be applied to a contact.
