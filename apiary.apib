@@ -10,7 +10,7 @@ Welcome to the Jumplead DRAFT API v1 developer documentation!
 
 The Jumplead API uses [OAuth 2.0](http://oauth.net/2/) for authentication. You will first need to register your application on the [Jumplead Developer](http://developer.jumplead.com) site.
 
-Once registered use the following endpoints to get your Access and Refresh tokens:
+Once registered use the following endpoints to get your Access and Refresh tokens using the keys provided in the Jumplead Developer site:
 
 * `Authorization URL` https://account.mooloop.com/oauth/authorize
 * `Access Token URL` https://account.mooloop.com/oauth/access_token
@@ -42,6 +42,11 @@ All responses from the Jumplead API are wrapped inside a "data" namespace at the
 All Collections from the Jumplead API are paged in batches of 20 results. This limit is currently hard-coded and can't be changed. Some endpoints don't having paging restrictions.
 
 Information about paging is contained inside the "meta"."pagination" namespace. It's contents are self explanatory.
+
+### Embedded Records
+Some records contain links to other resources. For example a contact is assigned a company. 
+
+When resources can be embedded there will be an "availableIncludes" includes namespace inside the meta information. You can then tell the API to include the resources by passing them as a GET variable. For example `?include=company` or including multiple resources `?include=company,geoname`. Some resources such as contacts include these resources by default.
 
 # Group Automations
 Automations are a series of actions that can be applied to a contact.
