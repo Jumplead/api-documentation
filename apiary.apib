@@ -492,6 +492,44 @@ Use contact companies to group contacts under a company.
                 }
               }
             }
+            
+## Contact Company [/contactCompanies/{id}]
+
++ Parameters
+    + id (required, string, `55d1bfcd463a6701008b45aa`) ... The ID of the contact company.
+    
++ Model (application/json)
+
+    + Body
+    
+            {
+                "data": {
+                    "id": "55d1bfcd463a6701008b45aa",
+                    "name": "Jumplead",
+                    "description": "",
+                    "logo_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/0a00b78d8f220c4263afe60fdc0254f0_280fb85f2a470312010c85b3f3482d49f777ffa95d37db5ba3401f687adc414b",
+                    "social": [],
+                    "tags": ['jumplead'],
+                    "geoname": 2639076,
+                    "website": "https://jumplead.com",
+                    "address_street_address": "23 Hallfields Lane Rothley",
+                    "address_locality": "Leicester",
+                    "address_admin_area": "Leicestershire",
+                    "address_postal_code": "LE7 7NF",
+                    "address_country": "GB"
+                }
+            }
+            
+### Retrieve a Contact Company [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
++ Response 200 (application/json)
+
+    [Contact Company][]
     
 # Group Stages
 Stages are used to group contacts.
