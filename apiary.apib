@@ -429,6 +429,69 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 
     [Contact][]
     
+# Group Contact Companies
+Use contact companies to group contacts under a company.
+
+## Contact Company Fields
+| Name                   | Description                                                           | Details                 |
+| ---------------------- | --------------------------------------------------------------------- | ----------------------- |
+| name                   | The name of the contact company                                       | string, required        |
+| description            | Description of the company                                            | string, optional        |
+| logo_url               | The URL of the company logo                                           | string, optional        |
+| social                 | System field used by Jumplead App                                     | array, read-only        |
+| tags                   | An array of tags to use for the company                               | array[string], optional |
+| geoname                | Jumplead uses [Geonames](http://www.geonames.org/) for locations      | integer, optional       |
+| website                | The Website address of the company                                    | string, optional        |
+| address_street_address | The street address of the company                                     | string, optional        |
+| address_locality       | The Town / City of the company                                        | string, optional        |
+| address_admin_area     | The State / Province of the company                                   | string, optional        |
+| address_postal_code    | The ZIP / Postcode of the company                                     | string, optional        |
+| address_country        | ISO 2 Digit Country code for the company                              | string, optional        |
+
+## Contact Companies Collection [/contactCompanies]
+
+### List all Contact Companies [GET]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "data": [
+                {
+                    "id": "55d1bfcd463a6701008b45aa",
+                    "name": "Jumplead",
+                    "description": "",
+                    "logo_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/0a00b78d8f220c4263afe60fdc0254f0_280fb85f2a470312010c85b3f3482d49f777ffa95d37db5ba3401f687adc414b",
+                    "social": [],
+                    "tags": ['jumplead'],
+                    "geoname": 2639076,
+                    "website": "https://jumplead.com",
+                    "address_street_address": "23 Hallfields Lane Rothley",
+                    "address_locality": "Leicester",
+                    "address_admin_area": "Leicestershire",
+                    "address_postal_code": "LE7 7NF",
+                    "address_country": "GB"
+                }
+              ],
+              "meta": {
+                "pagination": {
+                  "total": 1,
+                  "count": 1,
+                  "per_page": 20,
+                  "current_page": 1,
+                  "total_pages": 1,
+                  "links": [
+                    
+                  ]
+                }
+              }
+            }
     
 # Group Stages
 Stages are used to group contacts.
