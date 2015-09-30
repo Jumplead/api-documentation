@@ -520,6 +520,45 @@ Use contact companies to group contacts under a company.
                 }
             }
             
+## Create a Contact Company [/contactCompanies]
+### Create a Contact Company [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer someRandomAccessToken
+            
+    + Body
+    
+            {
+                "data": {
+                    "name": "Jumplead",
+                    "description": "My awesome new company!"
+                }
+            }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "data": {
+                    "id": "55d1bfcd463a6701008b45aa",
+                    "name": "Jumplead",
+                    "description": "My awesome new company!",
+                    "logo_url": null,
+                    "social": [],
+                    "tags": [],
+                    "geoname": null,
+                    "website": null,
+                    "address_street_address": null,
+                    "address_locality": null,
+                    "address_admin_area": null,
+                    "address_postal_code": null,
+                    "address_country": null
+              }
+            }
+            
 ### Retrieve a Contact Company [GET]
 + Request (application/json)
 
