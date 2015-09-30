@@ -448,7 +448,7 @@ Use contact companies to group contacts under a company.
 | address_postal_code    | The ZIP / Postcode of the company                                     | string, optional        |
 | address_country        | ISO 2 Digit Country code for the company                              | string, optional        |
 
-## Contact Companies Collection [/contactCompanies]
+## Contact Companies Collection [/contactCompanies{?name}]
 
 ### List all Contact Companies [GET]
 + Request (application/json)
@@ -493,33 +493,6 @@ Use contact companies to group contacts under a company.
               }
             }
             
-## Contact Company [/contactCompanies/{id}]
-
-+ Parameters
-    + id (required, string, `55d1bfcd463a6701008b45aa`) ... The ID of the contact company.
-    
-+ Model (application/json)
-
-    + Body
-    
-            {
-                "data": {
-                    "id": "55d1bfcd463a6701008b45aa",
-                    "name": "Jumplead",
-                    "description": "",
-                    "logo_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/0a00b78d8f220c4263afe60fdc0254f0_280fb85f2a470312010c85b3f3482d49f777ffa95d37db5ba3401f687adc414b",
-                    "social": [],
-                    "tags": ['jumplead'],
-                    "geoname": 2639076,
-                    "website": "https://jumplead.com",
-                    "address_street_address": "23 Hallfields Lane Rothley",
-                    "address_locality": "Leicester",
-                    "address_admin_area": "Leicestershire",
-                    "address_postal_code": "LE7 7NF",
-                    "address_country": "GB"
-                }
-            }
-            
 ## Create a Contact Company [/contactCompanies]
 ### Create a Contact Company [POST]
 + Request (application/json)
@@ -557,6 +530,33 @@ Use contact companies to group contacts under a company.
                     "address_postal_code": null,
                     "address_country": null
               }
+            }
+        
+## Contact Company [/contactCompanies/{id}]
+
++ Parameters
+    + id (required, string, `55d1bfcd463a6701008b45aa`) ... The ID of the contact company.
+    
++ Model (application/json)
+
+    + Body
+    
+            {
+                "data": {
+                    "id": "55d1bfcd463a6701008b45aa",
+                    "name": "Jumplead",
+                    "description": "",
+                    "logo_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/0a00b78d8f220c4263afe60fdc0254f0_280fb85f2a470312010c85b3f3482d49f777ffa95d37db5ba3401f687adc414b",
+                    "social": [],
+                    "tags": ['jumplead'],
+                    "geoname": 2639076,
+                    "website": "https://jumplead.com",
+                    "address_street_address": "23 Hallfields Lane Rothley",
+                    "address_locality": "Leicester",
+                    "address_admin_area": "Leicestershire",
+                    "address_postal_code": "LE7 7NF",
+                    "address_country": "GB"
+                }
             }
             
 ### Retrieve a Contact Company [GET]
