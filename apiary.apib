@@ -212,7 +212,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 | last_name         | The last name of the contact                                                                                                              | string, required                                      |
 | email             | Email address for the contact. Must be valid                                                                                              | string, required                                      |
 | contactable       | Flag for if the contact has globally opted out of emails                                                                                  | boolean, optional                                     |
-| company           | The ID of the company this contact belongs to                                                                                             | string, optional                                      |
+| contact_company   | The ID of the company this contact belongs to                                                                                             | string, optional                                      |
 | background        | A textual description of the contact                                                                                                      | string, optional                                      |
 | status            | Status for the contact                                                                                                                    | integer, optional<br>0 = Not Managed<br>1 = Managed   |
 | stage             | ID of the Stage for the contact. Fetch stage IDs from the Stages endpoint                                                                 | integer, optional                                     |
@@ -264,7 +264,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
                   "id": "53babf8c7558f4e3358b456a",
                   "first_name": "Paul",
                   "last_name": "Smith",
-                  "company": "53babf8c7558f4e3358b4569",
+                  "contact_company": "53babf8c7558f4e3358b4569",
                   "background": "Some useful background information",
                   "status": 1,
                   "stage": 55,
@@ -285,7 +285,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
                   "id": "53babf8c7333f4e3358b222a",
                   "first_name": "Joe",
                   "last_name": "Bloggs",
-                  "company": "53babf8c7558f4e3358b4569",
+                  "contact_company": "53babf8c7558f4e3358b4569",
                   "background": "Some useful background information",
                   "status": 1,
                   "stage": 55,
