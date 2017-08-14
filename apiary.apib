@@ -1,41 +1,16 @@
 FORMAT: 1A
-HOST: https://app.jumplead.com/api/v1
+HOST: https://api.jumplead.com/v1
 
 # Jumplead
-Welcome to the Jumplead DRAFT API v1 developer documentation! 
+Welcome to the Jumplead Legacy API v1 developer documentation! 
 
-Please note this documentation is a Work In Progress and the API isn't feature complete. We'll be adding extra functionality over time.
+This API is deprecated and will soon be retired in favour of our v2 API.
 
 ## Authentication
 
-![OAuth 2.0](http://oauth.net/images/oauth-2-sm.png)
+The Jumplead API uses Personal access tokens (API Keys) for authentication. You will find your personal access tokens in your [Account Settings](https://app.jumplead.com/settings/access-tokens). 
 
-The Jumplead API uses [OAuth 2.0](http://oauth.net/2/) for authentication. You will first need to register your application on the [Jumplead Developer](http://developer.jumplead.com) site. The Jumplead API uses the Authorization Code flow to get access tokens and refresh tokens. 
-
-Once registered use the following endpoints to get your Access and Refresh tokens using the keys provided in the Jumplead Developer site:
-
-* `Authorization URL` https://account.mooloop.com/oauth/authorize
-* `Access Token URL` https://account.mooloop.com/oauth/access_token
-* `Refresh Token URL` https://account.mooloop.com/oauth/access_token
-
-### Scopes
-
-The following scopes are available. Only request the scopes that you need access to.
-
-| Scope                         | Description                                                   |
-| ----------------------------- | ------------------------------------------------------------- |
-| jumplead.personal             | Access to personal information, such as email and address.    |
-| jumplead.automation           | Access to manage Automations                                  |
-| jumplead.streams              | Access to manage Activity Streams                             |
-| jumplead.landing-pages        | Access to manage Landing Pages                                |
-| jumplead.lead-capture-forms   | Access to manage Lead capture forms                           |
-| jumplead.campaigns            | Access to manage Campaigns                                    |
-| jumplead.contacts             | Access to manage Contacts                                     |
-| jumplead.messages             | Access to manage Messages                                     |
-| jumplead.analytics            | Access to Analytics Statistics                                |
-| jumplead.reseller             | Access to Reseller Controls                                   |
-| jumplead.billing              | Access to Billing Information and Invoices                    |
-| jumplead.keywords             | Access to SERP Keywords                                       |
+Once you have your api key it'll need to be included in the `X-Jumplead-Auth` header for all requests.
 
 ## Responses
 All responses from the Jumplead API are wrapped inside a "data" namespace at the top level of the JSON response. The top level also includes a "meta" namespace which includes extra information to aid the developer.
@@ -70,7 +45,7 @@ Automations are a series of actions that can be applied to a contact.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -166,7 +141,7 @@ Automations are a series of actions that can be applied to a contact.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -183,7 +158,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
     + Body
 
@@ -252,7 +227,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -327,7 +302,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
             
     + Body
     
@@ -403,7 +378,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -414,7 +389,7 @@ If the contact doesn't exist Jumplead will create one automatically and trigger 
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
             
             
     + Body
@@ -455,7 +430,7 @@ Use contact companies to group contacts under a company.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -499,7 +474,7 @@ Use contact companies to group contacts under a company.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
             
     + Body
     
@@ -564,7 +539,7 @@ Use contact companies to group contacts under a company.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -575,7 +550,7 @@ Use contact companies to group contacts under a company.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
             
             
     + Body
@@ -609,7 +584,7 @@ Stages are used to group contacts.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
@@ -673,7 +648,7 @@ Stages are used to group contacts.
 
     + Headers
     
-            Authorization: Bearer someRandomAccessToken
+            X-Jumplead-Auth: myApiKey
 
 + Response 200 (application/json)
 
